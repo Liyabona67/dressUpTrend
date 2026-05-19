@@ -25,6 +25,11 @@
     padding: 0;
     box-sizing: border-box;
 }
+.logo-img {
+    width: 120px;
+    height: auto;
+    object-fit: contain;
+}
 
 html { scroll-behavior: smooth; }
 
