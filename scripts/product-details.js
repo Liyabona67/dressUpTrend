@@ -1,5 +1,7 @@
 // ---------- PRODUCT DETAILS PAGE ----------
 function renderProductDetailsPage(product) {
+    hideHero();
+
     const angles = product.angles || [product.image];
     const angleButtons = angles.map((img, idx) => 
         `<button class="angle-btn${idx === 0 ? ' active' : ''}" data-angle="${idx}" title="View ${idx + 1}">View ${idx + 1}</button>`
@@ -42,13 +44,17 @@ function renderProductDetailsPage(product) {
             </div>
         </div>
     `;
+
     document.getElementById("app").innerHTML = html;
+
     const detailsEmail = document.getElementById("detailsEmail");
     const detailsWhatsapp = document.getElementById("detailsWhatsapp");
     const detailsInstagram = document.getElementById("detailsInstagram");
+
     detailsEmail.href = `mailto:${CONTACT.email}?subject=Inquiry about ${encodeURIComponent(product.name)}&body=Hi DRESSUP, I'm interested in ${product.name} (${product.price})`;
     detailsWhatsapp.href = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(`Hello DRESSUP! I'm interested in ${product.name} (${product.price}). Please provide more details.`)}`;
     detailsInstagram.href = CONTACT.instagram;
+
     document.querySelectorAll(".angle-btn").forEach((btn, idx) => {
         btn.addEventListener("click", () => {
             document.querySelectorAll(".angle-btn").forEach(b => b.classList.remove("active"));
@@ -56,5 +62,12 @@ function renderProductDetailsPage(product) {
             document.getElementById("mainProductImg").src = angles[idx];
         });
     });
-    document.getElementById("backBtn").addEventListener("click", () => renderHome());
+
+    document.getElementById("backBtn").addEventListener("click", () => {
+        if (document.referrer) {
+            history.back();
+        } else {
+            renderHome();
+        }
+    });
 }
