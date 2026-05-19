@@ -1171,3 +1171,30 @@ footer {
     .story-stats { grid-template-columns: 1fr 1fr; }
     .product-card { flex: 0 0 calc(100% - 0px); }
 }
+
+/* Filter Section */
+.filter-section {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 40px 0 30px;
+}
+
+.filter-btn {
+    background: #222;
+    border: 1px solid #444;
+    color: white;
+    padding: 10px 24px;
+    border-radius: 40px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.filter-btn:hover,
+.filter-btn.active-filter {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: black;
+}
