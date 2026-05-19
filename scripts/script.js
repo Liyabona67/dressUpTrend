@@ -487,6 +487,7 @@ function init() {
     document.getElementById("navUnisex")?.addEventListener("click", () => { hideHero(); renderUnisexPage(); });
     document.getElementById("navAccessories")?.addEventListener("click", () => { hideHero(); renderAccessoriesPage(); });
     document.getElementById("navAll")?.addEventListener("click", () => { hideHero(); renderAllProducts(); });
+    document.getElementById("navCart")?.addEventListener("click", () => renderCartPage());
     document.getElementById("discoverStoryBtn")?.addEventListener("click", () => { hideHero(); renderStoryPage(); });
 
     document.getElementById("footerHome")?.addEventListener("click", () => renderHome());
