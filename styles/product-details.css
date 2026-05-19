@@ -169,38 +169,115 @@
     width: 100%;
 }
 
-/* RESPONSIVE */
+/* ========== RESPONSIVE ========== */
+
+/* Tablet: switch to single column */
 @media (max-width: 1024px) {
     .details-container {
         grid-template-columns: 1fr;
         gap: 40px;
     }
-    
+
     .details-info {
         padding: 0;
     }
 }
 
+/* Mobile: tighten everything up */
 @media (max-width: 768px) {
+    .product-details-page {
+        padding: 20px 0;
+    }
+
     .details-container {
-        padding: 0 16px;
-        gap: 30px;
+        padding: 0 14px;
+        gap: 24px;
     }
-    
+
+    /* Image: shorter aspect ratio so it doesn't eat the whole screen */
+    .main-image {
+        aspect-ratio: 3 / 2;
+        border-radius: 10px;
+    }
+
+    /* Angle buttons: smaller and scrollable in one row */
+    .angle-selector {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 8px;
+        padding-bottom: 4px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .angle-btn {
+        padding: 8px 14px;
+        font-size: 0.8rem;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    /* Product name and price */
     .details-info h1 {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
+        margin-bottom: 10px;
     }
-    
+
     .details-price {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
+        margin-bottom: 20px;
     }
-    
-    .details-buttons {
-        flex-direction: column;
+
+    /* Description and features */
+    .details-description,
+    .details-features {
+        margin-bottom: 20px;
     }
-    
-    .details-buttons .btn {
-        padding: 12px 20px;
+
+    .details-description h3,
+    .details-features h3 {
+        font-size: 0.85rem;
+        margin-bottom: 8px;
+    }
+
+    .details-description p {
         font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    .details-features li {
+        font-size: 0.88rem;
+        padding: 7px 0;
+    }
+
+    /* Buttons: full width stacked, comfortable tap size */
+    .details-buttons {
+        margin-top: 24px;
+        gap: 10px;
+    }
+
+    .details-buttons .btn {
+        padding: 13px 16px;
+        font-size: 0.88rem;
+    }
+
+    /* Back button */
+    .back-btn {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 400px) {
+    .details-container {
+        padding: 0 10px;
+    }
+
+    .details-info h1 {
+        font-size: 1.3rem;
+    }
+
+    .details-price {
+        font-size: 1.15rem;
     }
 }
