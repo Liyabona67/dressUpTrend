@@ -38,11 +38,17 @@ const products = {
 };
 const allProducts = [...products.men, ...products.women, ...products.unisex, ...products.accessories];
 
-// ---------- HERO SECTION CONTROL ----------
+// ---------- HERO SECTION CONTROL - FORCE HIDE/SHOW ----------
 function hideHero() {
     const hero = document.getElementById('heroSection');
     if (hero) {
         hero.style.display = 'none';
+        hero.style.visibility = 'hidden';
+        hero.style.opacity = '0';
+        hero.style.height = '0';
+        hero.style.margin = '0';
+        hero.style.padding = '0';
+        hero.style.overflow = 'hidden';
     }
 }
 
@@ -50,6 +56,12 @@ function showHero() {
     const hero = document.getElementById('heroSection');
     if (hero) {
         hero.style.display = 'flex';
+        hero.style.visibility = 'visible';
+        hero.style.opacity = '1';
+        hero.style.height = '';
+        hero.style.margin = '';
+        hero.style.padding = '';
+        hero.style.overflow = '';
     }
 }
 
@@ -279,7 +291,9 @@ function carouselHtml(id) {
 
 // ---------- PAGE RENDERING FUNCTIONS ----------
 function renderCategoryPage(title, subtitle, productArray) {
-    hideHero(); // HIDE HERO on category pages
+    // FORCE HIDE HERO SECTION
+    hideHero();
+    
     const html = `
         <div class="page-hero">
             <div class="container">
@@ -309,7 +323,9 @@ function renderAccessoriesPage() { renderCategoryPage("Accessories", "Curated de
 function renderAllProducts() { renderCategoryPage("All Products", "Browse the complete Dressup Trend collection.", allProducts); }
 
 function renderStoryPage() {
-    hideHero(); // HIDE HERO on story page
+    // FORCE HIDE HERO SECTION
+    hideHero();
+    
     const html = `
         <div class="story-page">
             <div class="hero-eyebrow" style="display:inline-flex; margin-bottom:24px; background:rgba(184,151,58,0.15);">
@@ -328,7 +344,9 @@ function renderStoryPage() {
 }
 
 function renderHome() {
-    showHero(); // SHOW HERO only on home page
+    // SHOW HERO SECTION ONLY ON HOME
+    showHero();
+    
     const featuredBadges = { m1: 'Bestseller', m2: 'New', w1: 'New', m4: 'Limited' };
     const arrivalBadges = { w2: 'New', w3: 'New', m5: 'New', u1: 'New' };
     
@@ -431,7 +449,7 @@ function renderHome() {
         buildCarousel('arrivalsCarousel', arrivals, arrivalBadges);
     }, 50);
     
-    // FIXED: Shop Now buttons now correctly call the page rendering functions
+    // Shop Now buttons
     document.querySelectorAll(".men-shop").forEach(b => b.addEventListener("click", (e) => {
         e.preventDefault();
         renderMenPage();
