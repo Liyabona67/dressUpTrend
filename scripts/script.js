@@ -21,20 +21,22 @@ const products = {
         { id: "w4", name: "Minimal DT Tee", price: "R499", image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&h=600&fit=crop", desc: "A minimalist essential with clean lines and premium feel." },
         { id: "w5", name: "DT Beanie", price: "R299", image: "https://images.unsplash.com/photo-1576871337622-98d48d1cf531?w=500&h=600&fit=crop", desc: "Cozy knit beanie — the perfect finishing touch." }
     ],
-    accessories: [
-        { id: "a1", name: "DT Cap", price: "R399", image: "https://images.unsplash.com/photo-1529985074064-6a02e37c1d8f?w=500&h=600&fit=crop", desc: "Classic cap with a modern twist." },
-        { id: "a2", name: "DT Scarf", price: "R299", image: "https://images.unsplash.com/photo-1576871337622-98d48d1cf531?w=500&h=600&fit=crop", desc: "Soft scarf for any season." },
-        { id: "a3", name: "DT Gloves", price: "R199", image: "https://images.unsplash.com/photo-1576871337622-98d48d1cf531?w=500&h=600&fit=crop", desc: "Stylish gloves for cold weather." }
-    ],
     unisex: [
         { id: "u1", name: "Unisex Cargo Pants", price: "R1,099", image: "https://images.unsplash.com/photo-1517438476312-10d79c077509?w=500&h=600&fit=crop", desc: "Relaxed unisex cargo pants for any occasion." },
         { id: "u2", name: "Unisex Hoodie", price: "R849", image: "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?w=500&h=600&fit=crop", desc: "Oversized hoodie designed for everyone." },
         { id: "u3", name: "Unisex Track Pants", price: "R949", image: "https://images.unsplash.com/photo-1584862109647-5d105f4d96cd?w=500&h=600&fit=crop", desc: "Tapered sporty track pants with a modern cut." },
         { id: "u4", name: "Unisex Beanie", price: "R299", image: "https://images.unsplash.com/photo-1576871337622-98d48d1cf531?w=500&h=600&fit=crop", desc: "Essential beanie for all seasons." },
         { id: "u5", name: "Unisex Graphic Tee", price: "R499", image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&h=600&fit=crop", desc: "Bold statement tee with premium construction." }
+    ],
+    accessories: [
+        { id: "a1", name: "DT Leather Belt", price: "R349", image: "https://images.unsplash.com/photo-1521334884684-d80222895322?w=500&h=600&fit=crop", desc: "Smooth leather belt with a signature metallic buckle." },
+        { id: "a2", name: "Silver Chain Necklace", price: "R429", image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=500&h=600&fit=crop", desc: "Bold silver chain that elevates every outfit." },
+        { id: "a3", name: "DT Sunglasses", price: "R599", image: "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?w=500&h=600&fit=crop", desc: "Modern square sunglasses with UV protection." },
+        { id: "a4", name: "Leather Crossbody", price: "R899", image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=500&h=600&fit=crop", desc: "Compact crossbody bag finished with premium leather." },
+        { id: "a5", name: "Embroidered Cap", price: "R279", image: "https://images.unsplash.com/photo-1520975915155-5552e3b3a1e8?w=500&h=600&fit=crop", desc: "Signature cap with embroidered Dressup Trend branding." }
     ]
 };
-const allProducts = [...products.men, ...products.women, ...products.accessories, ...products.unisex];
+const allProducts = [...products.men, ...products.women, ...products.unisex, ...products.accessories];
 
 // ---------- PRODUCT CARD TEMPLATE ----------
 function renderProductCard(product, badge = '') {
@@ -426,7 +428,8 @@ function renderCategoryPage(title, subtitle, productArray) {
 
 function renderMenPage() { renderCategoryPage("Men's Collection", "Premium streetwear and designer essentials for men.", products.men); }
 function renderWomenPage() { renderCategoryPage("Women's Collection", "Bold, sophisticated designer pieces for women.", products.women); }
-function renderAccessoriesPage() { renderCategoryPage("Accessories", "Stylish accessories to complement your look.", products.accessories); }
+function renderUnisexPage() { renderCategoryPage("Unisex Collection", "Versatile designer pieces for everyone.", products.unisex); }
+function renderAccessoriesPage() { renderCategoryPage("Accessories", "Curated designer accessories to complete your look.", products.accessories); }
 function renderAllProducts() { renderCategoryPage("All Products", "Browse the complete Dressup Trend collection.", allProducts); }
 
 // ---------- STORY PAGE ----------
@@ -467,14 +470,16 @@ function init() {
     document.getElementById("navHome")?.addEventListener("click", () => renderHome());
     document.getElementById("navMen")?.addEventListener("click", () => renderMenPage());
     document.getElementById("navWomen")?.addEventListener("click", () => renderWomenPage());
-    document.getElementById("navAccessories")?.addEventListener("click", () => renderUnisexPage());
+    document.getElementById("navUnisex")?.addEventListener("click", () => renderUnisexPage());
+    document.getElementById("navAccessories")?.addEventListener("click", () => renderAccessoriesPage());
     document.getElementById("navAll")?.addEventListener("click", () => renderAllProducts());
     document.getElementById("discoverStoryBtn")?.addEventListener("click", () => renderStoryPage());
 
     document.getElementById("footerHome")?.addEventListener("click", () => renderHome());
     document.getElementById("footerMen")?.addEventListener("click", () => renderMenPage());
     document.getElementById("footerWomen")?.addEventListener("click", () => renderWomenPage());
-    document.getElementById("footerAccessories")?.addEventListener("click", () => renderUnisexPage());
+    document.getElementById("footerUnisex")?.addEventListener("click", () => renderUnisexPage());
+    document.getElementById("footerAccessories")?.addEventListener("click", () => renderAccessoriesPage());
     document.getElementById("footerAll")?.addEventListener("click", () => renderAllProducts());
     document.getElementById("footerStory")?.addEventListener("click", () => renderStoryPage());
     document.getElementById("footerContact")?.addEventListener("click", () =>
