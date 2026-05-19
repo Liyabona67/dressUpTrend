@@ -1198,3 +1198,34 @@ footer {
     border-color: var(--gold);
     color: black;
 }
+
+/* ---- Mobile: 2-column product grid ---- */
+@media (max-width: 699px) {
+    .products-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        padding: 0 8px;
+    }
+
+    .product-card {
+        width: 100%;
+    }
+
+    .product-card .product-info h4 {
+        font-size: 0.78rem;
+    }
+
+    .product-card .product-desc-text {
+        display: none; /* hide description on small screens to save space */
+    }
+
+    .product-card .price {
+        font-size: 0.82rem;
+    }
+
+    /* Carousel: also 2 per view on mobile is handled by getVisible() already */
+    .carousel-track-container {
+        padding: 0 4px;
+    }
+}
