@@ -35,6 +35,25 @@ function renderProductDetailsPage(product) {
                             <li>Multiple color options available</li>
                         </ul>
                     </div>
+
+                    <!-- ADD TO CART SECTION -->
+                    <div class="add-to-cart-section">
+                        <label for="sizeSelect">Select Size</label>
+                        <select id="sizeSelect" class="size-select">
+                            <option value="">-- Choose a size --</option>
+                            <option value="XS">XS</option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                            <option value="XXL">XXL</option>
+                            <option value="One Size">One Size</option>
+                        </select>
+                        <button class="add-to-cart-btn" id="addToCartBtn">
+                            <i class="fas fa-shopping-bag"></i> Add to Cart
+                        </button>
+                    </div>
+
                     <div class="details-buttons">
                         <a id="detailsWhatsapp" class="btn gold-btn" target="_blank"><i class="fab fa-whatsapp"></i> Contact on WhatsApp</a>
                         <a id="detailsEmail" class="btn outline-btn"><i class="fas fa-envelope"></i> Send Email</a>
@@ -55,6 +74,7 @@ function renderProductDetailsPage(product) {
     detailsWhatsapp.href = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(`Hello DRESSUP! I'm interested in ${product.name} (${product.price}). Please provide more details.`)}`;
     detailsInstagram.href = CONTACT.instagram;
 
+    // Angle buttons
     document.querySelectorAll(".angle-btn").forEach((btn, idx) => {
         btn.addEventListener("click", () => {
             document.querySelectorAll(".angle-btn").forEach(b => b.classList.remove("active"));
@@ -63,8 +83,15 @@ function renderProductDetailsPage(product) {
         });
     });
 
+    // Add to cart
+    document.getElementById("addToCartBtn").addEventListener("click", () => {
+        const size = document.getElementById("sizeSelect").value;
+        addToCart(product, size, 1);
+    });
+
+    // Back button
     document.getElementById("backBtn").addEventListener("click", () => {
-        if (document.referrer) {
+        if (history.length > 1) {
             history.back();
         } else {
             renderHome();
