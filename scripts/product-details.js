@@ -2,6 +2,13 @@
 function renderProductDetailsPage(product) {
     hideHero();
 
+    // Store the current route before going to product details
+    // This ensures we know where to return
+    const previousRoute = window.location.hash.slice(1) || 'home';
+    
+    // Update URL hash to product details page (stores the product id)
+    window.location.hash = `product/${product.id}`;
+
     const angles = product.angles || [product.image];
     const angleButtons = angles.map((img, idx) => 
         `<button class="angle-btn${idx === 0 ? ' active' : ''}" data-angle="${idx}" title="View ${idx + 1}">View ${idx + 1}</button>`
@@ -86,15 +93,16 @@ function renderProductDetailsPage(product) {
     // Add to cart
     document.getElementById("addToCartBtn").addEventListener("click", () => {
         const size = document.getElementById("sizeSelect").value;
+        if (!size) {
+            alert("Please select a size before adding to cart.");
+            return;
+        }
         addToCart(product, size, 1);
     });
 
-    // Back button
+    // Back button - returns to previous page using the stored route
     document.getElementById("backBtn").addEventListener("click", () => {
-        if (history.length > 1) {
-            history.back();
-        } else {
-            renderHome();
-        }
+        // Go back to the previous route
+        window.location.hash = previousRoute;
     });
 }
