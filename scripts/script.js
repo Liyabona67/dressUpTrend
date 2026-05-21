@@ -67,8 +67,31 @@ accessories: [
     { id: "a14", name: "Rimowa Grey iPhone 17 Pro Max Case", price: "1000", image: "images/Accessories/WhitePouch.jpeg", desc: "Grey grooved iPhone 17 Pro Max Case.", angles: ["images/Accessories/WhitePouch.jpeg"] }  
 ]
 };
-const allProducts = [...products.men, ...products.women, ...products.unisex, ...products.accessories];
 
+// Remove duplicate products by name
+function removeDuplicates(productArray) {
+
+    const seen = new Set();
+
+    return productArray.filter(product => {
+
+        const normalizedName = product.name.trim().toLowerCase();
+
+        if (seen.has(normalizedName)) {
+            return false;
+        }
+
+        seen.add(normalizedName);
+        return true;
+    });
+}
+
+const allProducts = removeDuplicates([
+    ...products.men,
+    ...products.women,
+    ...products.unisex,
+    ...products.accessories
+]);
 // ---------- HERO HELPERS ----------
 function showHero() {
     const h = document.getElementById("heroSection");
@@ -289,10 +312,7 @@ function renderCategoryPage(title, subtitle, productArray) {
         <div class="container" style="padding: 48px 0 60px;">
             <div class="products-grid">
                 ${productArray.map(p => renderProductCard(p)).join('')}
-            </div>
-            <div class="view-all-container">
-                <button id="viewAllBtn" class="btn dark-btn">View All Products <i class="fas fa-arrow-right"></i></button>
-            </div>
+            </div> 
         </div>
     `;
     document.getElementById("app").innerHTML = html;
