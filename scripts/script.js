@@ -18,7 +18,7 @@ men: [
     { id: "m8", name: "Dolce & Gabbana ", price: "R5000", image: "images/Shoes/DG-Shoe.jpeg", desc: "Michelangelo Derby shoes in black featuring a chunky sole and DG logo.", angles: ["images/Shoes/DG-Shoe.jpeg", "images/Shoes/DG-Shoe2.jpeg"] },
     { id: "m9", name: "Gucci GG Mules", price: "R3500", image: "images/Shoes/GG-Mules.jpeg", desc: "Double canvas mules with brown leather and an embossed double G detail", angles: ["images/Shoes/GG-Mules.jpeg"] },
     { id: "m10", name: "Louis Vuitton Trainer Sneaker", price: "R5000", image: "images/Shoes/LV-Shoe2.jpeg", desc: "Trainer sneakers in black leather with embossed monogram.", angles: ["images/Shoes/LV-Shoe2.jpeg", "images/Shoes/LV-Shoe.jpeg"] },
-    { id: "m11", name: "LV Wallet", price: "R649", image: "images/Accessories/LV-Wallet.jpeg", desc: "Luxury LV-inspired wallet with multiple card slots.", angles: ["images/Accessories/LV-Wallet.jpeg", "images/Accessories/LV-Wallet2.jpeg"] },
+    { id: "m11", name: "Louis Vuitton Card Holder", price: "R2000", image: "images/Accessories/LV-Wallet.jpeg", desc: "Holders in Monogram canvas with fuchsia pink leather interior.", angles: ["images/Accessories/LV-Wallet.jpeg", "images/Accessories/LV-Wallet2.jpeg"] },
     { id: "m12", name: "Black Prada Re-Nylon Baseball Cap", price: "R1500", image: "images/Accessories/PradaCap.jpeg", desc: "Baseball cap adorned with the brand's iconic enamel triangle logo.", angles: ["images/Accessories/PradaCap.jpeg", "images/Accessories/PradaCap2.jpeg"] },
      ],
     women: [
