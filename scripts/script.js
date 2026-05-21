@@ -331,15 +331,39 @@ function renderHome() {
 
     const html = `
         <div class="container">
-            <div id="categoriesSection" class="category-row scroll-target">
-                <div class="category-card"><div class="category-bg" style="background-image:url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&h=1000&fit=crop');"></div><div class="category-overlay"></div><div class="category-content"><h3>Men</h3><button class="shop-now-btn men-shop">Shop Now <i class="fas fa-arrow-right"></i></button></div></div>
-                <div class="category-card"><div class="category-bg" style="background-image:url('https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=800&h=1000&fit=crop');"></div><div class="category-overlay"></div><div class="category-content"><h3>Women</h3><button class="shop-now-btn women-shop">Shop Now <i class="fas fa-arrow-right"></i></button></div></div>
-                <div class="category-card"><div class="category-bg" style="background-image:url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&h=1000&fit=crop');"></div><div class="category-overlay"></div><div class="category-content"><h3>Unisex</h3><button class="shop-now-btn unisex-shop">Shop Now <i class="fas fa-arrow-right"></i></button></div></div>
+        <div id="categoriesSection" class="category-row scroll-target">
+            <!-- MEN -->
+            <div class="category-card">
+                <div class="category-bg" style="background-image:url('https://www.mrporter.com/variants/images/1647597311455189/ou/w2000_q60.jpg');"></div>
+                <div class="category-overlay"></div>
+                <div class="category-content">
+                    <h3>Men</h3>
+                    <button class="shop-now-btn men-shop">Shop Now <i class="fas fa-arrow-right"></i></button>
+                </div>
             </div>
-            <div class="section-header" style="margin-top:72px;"><div><h2 class="section-title">Featured Pieces</h2><p class="section-subtitle">Handpicked designer essentials</p></div><a class="view-all-link" id="viewAllFeatured">View all <i class="fas fa-arrow-right"></i></a></div>
+            <!-- WOMEN -->
+            <div class="category-card">
+                <div class="category-bg" style="background-image:url('https://tse2.mm.bing.net/th/id/OIP.aaCRtzCrcgeVN3cNIqSQCQHaJQ?r=0&rs=1&pid=ImgDetMain&o=7&rm=3');"></div>
+                <div class="category-overlay"></div>
+                <div class="category-content">
+                    <h3>Women</h3>
+                    <button class="shop-now-btn women-shop">Shop Now <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+            <!-- UNISEX -->
+            <div class="category-card">
+                <div class="category-bg" style="background-image:url('https://blog.etiquetaunica.com.br/wp-content/uploads/2025/08/nova-bolsa-balenciaga-le-city-east-west-conheca-a-nova-versao-da-bolsa-classica-210825.jpg');"></div>
+                <div class="category-overlay"></div>
+                <div class="category-content">
+                    <h3>Unisex</h3>
+                    <button class="shop-now-btn unisex-shop">Shop Now <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="section-header" style="margin-top:72px;"><div><h2 class="section-title">Featured Pieces</h2><p class="section-subtitle">Handpicked designer essentials</p></div><a class="view-all-link" id="viewAllFeatured">View all <i class="fas fa-arrow-right"></i></a></div>
             ${carouselHtml('featuredCarousel')}
             ${brandStripHtml()}
-            <div class="story-section"><div class="story-img-wrap"><img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=900&auto=format" alt="Our Story"></div><div class="story-text-wrap"><h2>More Than Clothes.<br><em>It's a Lifestyle.</em></h2><p>At Dressup Trend, we don't just sell clothes — we create identity. Our designer pieces are crafted for individuals who want to stand out, move differently, and wear confidence every day.</p><button id="storyBtn" class="btn dark-btn">Discover Our Story <i class="fas fa-arrow-right"></i></button><div class="story-stats"><div class="stat-item"><h3>15+</h3><p>Designer Pieces</p></div><div class="stat-item"><h3>3</h3><p>Collections</p></div><div class="stat-item"><h3>SA</h3><p>Proudly Local</p></div></div></div></div>
+            <div class="story-section"><div class="story-img-wrap"><img src="https://tse1.mm.bing.net/th/id/OIP.IFuiX9_i2RIEj70VPe9TXgHaE8?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Our Story"></div><div class="story-text-wrap"><h2>More Than Clothes.<br><em>It's a Lifestyle.</em></h2><p>At Dressup Trend, we don't just sell clothes — we create identity. Our designer pieces are crafted for individuals who want to stand out, move differently, and wear confidence every day.</p><button id="storyBtn" class="btn dark-btn">Discover Our Story <i class="fas fa-arrow-right"></i></button><div class="story-stats"><div class="stat-item"><h3>15+</h3><p>Designer Pieces</p></div><div class="stat-item"><h3>3</h3><p>Collections</p></div><div class="stat-item"><h3>SA</h3><p>Proudly Local</p></div></div></div></div>
             <div class="section-header"><div><h2 class="section-title">New Arrivals</h2><p class="section-subtitle">Fresh drops — be the first</p></div><a class="view-all-link" id="viewAllArrivals">View all <i class="fas fa-arrow-right"></i></a></div>
             ${carouselHtml('arrivalsCarousel')}
             <div class="benefits"><div class="benefit"><div class="benefit-icon"><i class="fas fa-truck"></i></div><div class="benefit-text"><h3>Fast Delivery</h3><p>Quick and reliable delivery to your door.</p></div></div><div class="benefit"><div class="benefit-icon"><i class="fas fa-lock"></i></div><div class="benefit-text"><h3>Secure Payment</h3><p>Your payment information is always safe.</p></div></div><div class="benefit"><div class="benefit-icon"><i class="fas fa-gem"></i></div><div class="benefit-text"><h3>Premium Quality</h3><p>Designer quality you can see and feel.</p></div></div></div>
