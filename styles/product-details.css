@@ -185,6 +185,7 @@
 
 /* Mobile: tighten everything up */
 @media (max-width: 768px) {
+
     .product-details-page {
         padding: 20px 0;
     }
@@ -194,13 +195,21 @@
         gap: 24px;
     }
 
-    /* Image: shorter aspect ratio so it doesn't eat the whole screen */
+    /* Mobile image container */
     .main-image {
-        aspect-ratio: 3 / 2;
+        aspect-ratio: 4 / 5;
         border-radius: 10px;
     }
 
-    /* Angle buttons: smaller and scrollable in one row */
+    /* MOBILE IMAGE FIX */
+    .main-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        background: var(--mist);
+    }
+
+    /* Angle buttons */
     .angle-selector {
         flex-wrap: nowrap;
         overflow-x: auto;
@@ -249,7 +258,7 @@
         padding: 7px 0;
     }
 
-    /* Buttons: full width stacked, comfortable tap size */
+    /* Buttons */
     .details-buttons {
         margin-top: 24px;
         gap: 10px;
@@ -269,6 +278,7 @@
 
 /* Very small screens */
 @media (max-width: 400px) {
+
     .details-container {
         padding: 0 10px;
     }
