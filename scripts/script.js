@@ -377,10 +377,9 @@ function renderProductDetailsPage(product) {
     hideHero();
 
     // Store the current route before going to product details
-    // This ensures we know where to return
     const previousRoute = window.location.hash.slice(1) || 'home';
     
-    // Update URL hash to product details page (stores the product id)
+    // Update URL hash to product details page
     window.location.hash = `product/${product.id}`;
 
     const angles = product.angles || [product.image];
@@ -417,7 +416,6 @@ function renderProductDetailsPage(product) {
                         </ul>
                     </div>
 
-                    <!-- ADD TO CART SECTION -->
                     <div class="add-to-cart-section">
                         <label for="sizeSelect">Select Size</label>
                         <select id="sizeSelect" class="size-select">
@@ -455,7 +453,6 @@ function renderProductDetailsPage(product) {
     detailsWhatsapp.href = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(`Hello DRESSUP! I'm interested in ${product.name} (${product.price}). Please provide more details.`)}`;
     detailsInstagram.href = CONTACT.instagram;
 
-    // Angle buttons
     document.querySelectorAll(".angle-btn").forEach((btn, idx) => {
         btn.addEventListener("click", () => {
             document.querySelectorAll(".angle-btn").forEach(b => b.classList.remove("active"));
@@ -464,7 +461,6 @@ function renderProductDetailsPage(product) {
         });
     });
 
-    // Add to cart
     document.getElementById("addToCartBtn").addEventListener("click", () => {
         const size = document.getElementById("sizeSelect").value;
         if (!size) {
@@ -478,7 +474,6 @@ function renderProductDetailsPage(product) {
         }
     });
 
-    // Back button - returns to previous page using the stored route
     document.getElementById("backBtn").addEventListener("click", () => {
         window.location.hash = previousRoute;
     });
@@ -491,10 +486,19 @@ function handleRoute() {
     // Check if it's a product details route (format: product/ID)
     if (hash.startsWith('product/')) {
         const productId = hash.split('/')[1];
-        // Find the product by ID across all categories
         const product = allProducts.find(p => p.id === productId);
         if (product && typeof renderProductDetailsPage === 'function') {
             renderProductDetailsPage(product);
+        } else {
+            renderHome();
+        }
+        return;
+    }
+    
+    // Check if it's cart route
+    if (hash === 'cart') {
+        if (typeof renderCartPage === 'function') {
+            renderCartPage();
         } else {
             renderHome();
         }
@@ -533,7 +537,7 @@ function init() {
     document.getElementById("navUnisex")?.addEventListener("click", (e) => { e.preventDefault(); window.location.hash = 'unisex'; });
     document.getElementById("navAccessories")?.addEventListener("click", (e) => { e.preventDefault(); window.location.hash = 'accessories'; });
     document.getElementById("navAll")?.addEventListener("click", (e) => { e.preventDefault(); window.location.hash = 'all'; });
-    document.getElementById("navCart")?.addEventListener("click", (e) => { e.preventDefault(); if (typeof renderCartPage === 'function') renderCartPage(); });
+    document.getElementById("navCart")?.addEventListener("click", (e) => { e.preventDefault(); window.location.hash = 'cart'; });
     document.getElementById("discoverStoryBtn")?.addEventListener("click", (e) => { e.preventDefault(); window.location.hash = 'story'; });
     
     // Explore button

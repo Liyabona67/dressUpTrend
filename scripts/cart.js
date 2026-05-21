@@ -77,9 +77,16 @@ function buildWhatsappMessage() {
     return msg;
 }
 
-// ========== CART PAGE ==========
+// ========== CART PAGE WITH ROUTING ==========
 function renderCartPage() {
     hideHero();
+
+    // Store the current route before going to cart
+    // This ensures we know where to return when clicking back
+    const previousRoute = window.location.hash.slice(1) || 'home';
+    
+    // Update URL hash to cart page
+    window.location.hash = 'cart';
 
     if (cart.length === 0) {
         document.getElementById('app').innerHTML = `
@@ -89,10 +96,17 @@ function renderCartPage() {
                     <h2>Your Cart is Empty</h2>
                     <p>Looks like you haven't added anything yet. Browse our collections and find something you love.</p>
                     <button class="btn gold-btn" id="cartShopBtn"><i class="fas fa-arrow-right" style="font-size:0.8rem;"></i> Browse Collection</button>
+                    <button class="btn outline-btn" id="cartBackBtn" style="margin-top: 16px;"><i class="fas fa-arrow-left" style="font-size:0.8rem;"></i> Go Back</button>
                 </div>
             </div>
         `;
-        document.getElementById('cartShopBtn')?.addEventListener('click', () => renderAllProducts());
+        document.getElementById('cartShopBtn')?.addEventListener('click', () => {
+            window.location.hash = 'all';
+        });
+        document.getElementById('cartBackBtn')?.addEventListener('click', () => {
+            // Go back to the previous route
+            window.location.hash = previousRoute;
+        });
         return;
     }
 
@@ -128,6 +142,7 @@ function renderCartPage() {
         <div class="cart-page">
             <div class="cart-page-header">
                 <div class="container">
+                    <button class="cart-back-btn" id="cartBackBtn"><i class="fas fa-arrow-left"></i> Back</button>
                     <h1>Your Cart <span class="cart-count-label">${cart.reduce((s,i)=>s+i.qty,0)} item${cart.reduce((s,i)=>s+i.qty,0)!==1?'s':''}</span></h1>
                     <p>Review your items, confirm sizes, then send your order via WhatsApp.</p>
                 </div>
@@ -173,7 +188,18 @@ function renderCartPage() {
         waBtn.href = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(buildWhatsappMessage())}`;
     }
 
-    document.getElementById('cartContinueBtn')?.addEventListener('click', () => renderAllProducts());
+    // Back button - returns to previous page using the stored route
+    const backBtn = document.getElementById('cartBackBtn');
+    if (backBtn) {
+        backBtn.addEventListener('click', () => {
+            window.location.hash = previousRoute;
+        });
+    }
+
+    // Continue Shopping button
+    document.getElementById('cartContinueBtn')?.addEventListener('click', () => {
+        window.location.hash = 'all';
+    });
 
     // Qty buttons
     document.querySelectorAll('.qty-btn').forEach(btn => {
