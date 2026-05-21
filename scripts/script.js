@@ -86,12 +86,12 @@ function removeDuplicates(productArray) {
     });
 }
 
-const allProducts = removeDuplicates([
+const allProducts = [
     ...products.men,
     ...products.women,
     ...products.unisex,
     ...products.accessories
-]);
+];
 // ---------- HERO HELPERS ----------
 function showHero() {
     const h = document.getElementById("heroSection");
@@ -371,8 +371,13 @@ function renderMenPage() { renderCategoryPage("Men's Collection", "Premium stree
 function renderWomenPage() { renderCategoryPage("Women's Collection", "Bold, sophisticated designer pieces for women.", products.women); }
 function renderUnisexPage() { renderCategoryPage("Unisex Collection", "Versatile designer pieces for everyone.", products.unisex); }
 function renderAccessoriesPage() { renderCategoryPage("Accessories", "Curated designer accessories to complete your look.", products.accessories); }
-function renderAllProducts() { renderCategoryPage("All Products", "Browse the complete Dressup Trend collection.", allProducts); }
-
+function renderAllProducts() { 
+    renderCategoryPage(
+        "All Products",
+        "Browse the complete Dressup Trend collection.",
+        removeDuplicates(allProducts)
+    ); 
+}
 function renderStoryPage() {
     hideHero();
     const html = `
