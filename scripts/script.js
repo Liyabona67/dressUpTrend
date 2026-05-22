@@ -367,7 +367,7 @@ function renderHome() {
             <div class="section-header"><div><h2 class="section-title">New Arrivals</h2><p class="section-subtitle">Fresh drops — be the first</p></div><a class="view-all-link" id="viewAllArrivals">View all <i class="fas fa-arrow-right"></i></a></div>
             ${carouselHtml('arrivalsCarousel')}
             <div class="benefits"><div class="benefit"><div class="benefit-icon"><i class="fas fa-truck"></i></div><div class="benefit-text"><h3>Fast Delivery</h3><p>Quick and reliable delivery to your door.</p></div></div><div class="benefit"><div class="benefit-icon"><i class="fas fa-lock"></i></div><div class="benefit-text"><h3>Secure Payment</h3><p>Your payment information is always safe.</p></div></div><div class="benefit"><div class="benefit-icon"><i class="fas fa-gem"></i></div><div class="benefit-text"><h3>Premium Quality</h3><p>Designer quality you can see and feel.</p></div></div></div>
-            <div class="newsletter"><p class="eyebrow">Exclusive Offer</p><h2>Get 10% Off Your First Order</h2><p>Join the Dressup Trend community and shop ahead in fashion.</p><div class="newsletter-form"><input type="email" id="subEmail" placeholder="Enter your email address"><button id="subscribeBtn" class="btn gold-btn">Subscribe</button></div></div>
+            <div class="newsletter"><p class="eyebrow">Exclusive Offer</p><h2>Get 10% Off Your First Order</h2><p>Join the Dressup Trend community and shop ahead in fashion.</p><div class="newsletter-form"></div></div>
         </div>
     `;
     document.getElementById("app").innerHTML = html;
