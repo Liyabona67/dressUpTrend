@@ -14,12 +14,12 @@ function formatPrice(num) {
 
 // ========== ADD TO CART ==========
 function addToCart(product, size = '', qty = 1) {
-    const key = product.id + '_' + size;
+    const key = product.id;
     const existing = cart.find(i => i.key === key);
     if (existing) {
         existing.qty += qty;
     } else {
-        cart.push({ key, id: product.id, name: product.name, price: product.price, image: product.image, size, qty });
+        cart.push({ key, id: product.id, name: product.name, price: product.price, image: product.image, qty });
     }
     updateCartBadge();
     showCartToast(product.name);
@@ -68,7 +68,6 @@ function buildWhatsappMessage() {
     let msg = `Hello DRESSUP! 👋\n\nI'd like to order the following:\n\n`;
     cart.forEach((item, i) => {
         msg += `${i + 1}. *${item.name}*\n`;
-        msg += `   Size: ${item.size || 'Please advise'}\n`;
         msg += `   Qty: ${item.qty}\n`;
         msg += `   Price: ${item.price} each\n\n`;
     });
@@ -82,7 +81,6 @@ function renderCartPage() {
     hideHero();
 
     // Store the current route before going to cart
-    // This ensures we know where to return when clicking back
     const previousRoute = window.location.hash.slice(1) || 'home';
     
     // Update URL hash to cart page
@@ -104,7 +102,6 @@ function renderCartPage() {
             window.location.hash = 'all';
         });
         document.getElementById('cartBackBtn')?.addEventListener('click', () => {
-            // Go back to the previous route
             window.location.hash = previousRoute;
         });
         return;
@@ -119,10 +116,6 @@ function renderCartPage() {
                 <div class="cart-item-top">
                     <div>
                         <h4>${item.name}</h4>
-                        <div class="cart-item-meta">
-                            <span class="cart-item-size-label">Size:</span>
-                            <input class="cart-size-input" type="text" placeholder="e.g. S, M, L, XL" value="${item.size}" data-key="${item.key}">
-                        </div>
                     </div>
                     <button class="cart-remove-btn" data-key="${item.key}" title="Remove"><i class="fas fa-times"></i></button>
                 </div>
@@ -144,7 +137,7 @@ function renderCartPage() {
                 <div class="container">
                     <button class="cart-back-btn" id="cartBackBtn"><i class="fas fa-arrow-left"></i> Back</button>
                     <h1>Your Cart <span class="cart-count-label">${cart.reduce((s,i)=>s+i.qty,0)} item${cart.reduce((s,i)=>s+i.qty,0)!==1?'s':''}</span></h1>
-                    <p>Review your items, confirm sizes, then send your order via WhatsApp.</p>
+                    <p>Review your items, then send your order via WhatsApp.</p>
                 </div>
             </div>
             <div class="cart-body container">
@@ -205,7 +198,6 @@ function renderCartPage() {
     document.querySelectorAll('.qty-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             updateQty(btn.dataset.key, parseInt(btn.dataset.delta));
-            // re-sync WhatsApp link after qty change
             const wa = document.getElementById('cartWhatsappBtn');
             if (wa) wa.href = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(buildWhatsappMessage())}`;
         });
@@ -214,17 +206,5 @@ function renderCartPage() {
     // Remove buttons
     document.querySelectorAll('.cart-remove-btn').forEach(btn => {
         btn.addEventListener('click', () => removeFromCart(btn.dataset.key));
-    });
-
-    // Size inputs — update cart item size live and refresh WhatsApp link
-    document.querySelectorAll('.cart-size-input').forEach(input => {
-        input.addEventListener('input', () => {
-            const item = cart.find(i => i.key === input.dataset.key);
-            if (item) {
-                item.size = input.value;
-                const wa = document.getElementById('cartWhatsappBtn');
-                if (wa) wa.href = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(buildWhatsappMessage())}`;
-            }
-        });
     });
 }

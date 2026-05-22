@@ -43,19 +43,8 @@ function renderProductDetailsPage(product) {
                         </ul>
                     </div>
 
-                    <!-- ADD TO CART SECTION -->
+                    <!-- ADD TO CART SECTION (NO SIZE SELECTION) -->
                     <div class="add-to-cart-section">
-                        <label for="sizeSelect">Select Size</label>
-                        <select id="sizeSelect" class="size-select">
-                            <option value="">-- Choose a size --</option>
-                            <option value="XS">XS</option>
-                            <option value="S">S</option>
-                            <option value="M">M</option>
-                            <option value="L">L</option>
-                            <option value="XL">XL</option>
-                            <option value="XXL">XXL</option>
-                            <option value="One Size">One Size</option>
-                        </select>
                         <button class="add-to-cart-btn" id="addToCartBtn">
                             <i class="fas fa-shopping-bag"></i> Add to Cart
                         </button>
@@ -90,14 +79,13 @@ function renderProductDetailsPage(product) {
         });
     });
 
-    // Add to cart
+    // Add to cart (no size selection required)
     document.getElementById("addToCartBtn").addEventListener("click", () => {
-        const size = document.getElementById("sizeSelect").value;
-        if (!size) {
-            alert("Please select a size before adding to cart.");
-            return;
+        if (typeof addToCart === 'function') {
+            addToCart(product, "", 1);
+        } else {
+            alert("Cart function not available. Please contact us directly.");
         }
-        addToCart(product, size, 1);
     });
 
     // Back button - returns to previous page using the stored route

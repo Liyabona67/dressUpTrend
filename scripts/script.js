@@ -70,17 +70,12 @@ accessories: [
 
 // Remove duplicate products by name
 function removeDuplicates(productArray) {
-
     const seen = new Set();
-
     return productArray.filter(product => {
-
         const normalizedName = product.name.trim().toLowerCase();
-
         if (seen.has(normalizedName)) {
             return false;
         }
-
         seen.add(normalizedName);
         return true;
     });
@@ -92,6 +87,7 @@ const allProducts = [
     ...products.unisex,
     ...products.accessories
 ];
+
 // ---------- HERO HELPERS ----------
 function showHero() {
     const h = document.getElementById("heroSection");
@@ -263,7 +259,6 @@ function attachCardEvents(scope = document) {
         card.addEventListener("click", e => {
             if (e.target.closest('.product-actions-overlay')) return;
             const prod = JSON.parse(card.getAttribute("data-product"));
-            // Navigate to product details page using hash routing
             window.location.hash = `product/${prod.id}`;
         });
     });
@@ -317,7 +312,6 @@ function renderCategoryPage(title, subtitle, productArray) {
     `;
     document.getElementById("app").innerHTML = html;
     attachCardEvents();
-    document.getElementById("viewAllBtn")?.addEventListener("click", () => { window.location.hash = 'all'; });
 }
 
 function renderHome() {
@@ -383,11 +377,6 @@ function renderHome() {
     document.getElementById("storyBtn")?.addEventListener("click", () => { window.location.hash = 'story'; });
     document.getElementById("viewAllFeatured")?.addEventListener("click", (e) => { e.preventDefault(); window.location.hash = 'all'; });
     document.getElementById("viewAllArrivals")?.addEventListener("click", (e) => { e.preventDefault(); window.location.hash = 'all'; });
-    document.getElementById("subscribeBtn")?.addEventListener("click", () => {
-        const val = document.getElementById("subEmail")?.value;
-        if (val && val.includes('@')) alert("Thanks for subscribing! Your 10% off code is on its way.");
-        else alert("Please enter a valid email address.");
-    });
     attachCardEvents();
 }
 
@@ -402,6 +391,7 @@ function renderAllProducts() {
         removeDuplicates(allProducts)
     ); 
 }
+
 function renderStoryPage() {
     hideHero();
     const html = `
@@ -421,14 +411,11 @@ function renderStoryPage() {
     attachCardEvents();
 }
 
-// ---------- PRODUCT DETAILS PAGE ----------
+// ---------- PRODUCT DETAILS PAGE (NO SIZE SELECTION) ----------
 function renderProductDetailsPage(product) {
     hideHero();
 
-    // Store the current route before going to product details
     const previousRoute = window.location.hash.slice(1) || 'home';
-    
-    // Update URL hash to product details page
     window.location.hash = `product/${product.id}`;
 
     const angles = product.angles || [product.image];
@@ -466,17 +453,6 @@ function renderProductDetailsPage(product) {
                     </div>
 
                     <div class="add-to-cart-section">
-                        <label for="sizeSelect">Select Size</label>
-                        <select id="sizeSelect" class="size-select">
-                            <option value="">-- Choose a size --</option>
-                            <option value="XS">XS</option>
-                            <option value="S">S</option>
-                            <option value="M">M</option>
-                            <option value="L">L</option>
-                            <option value="XL">XL</option>
-                            <option value="XXL">XXL</option>
-                            <option value="One Size">One Size</option>
-                        </select>
                         <button class="add-to-cart-btn" id="addToCartBtn">
                             <i class="fas fa-shopping-bag"></i> Add to Cart
                         </button>
@@ -511,13 +487,8 @@ function renderProductDetailsPage(product) {
     });
 
     document.getElementById("addToCartBtn").addEventListener("click", () => {
-        const size = document.getElementById("sizeSelect").value;
-        if (!size) {
-            alert("Please select a size before adding to cart.");
-            return;
-        }
         if (typeof addToCart === 'function') {
-            addToCart(product, size, 1);
+            addToCart(product, "", 1);
         } else {
             alert("Cart function not available. Please contact us directly.");
         }
@@ -532,7 +503,6 @@ function renderProductDetailsPage(product) {
 function handleRoute() {
     const hash = window.location.hash.slice(1) || 'home';
     
-    // Check if it's a product details route (format: product/ID)
     if (hash.startsWith('product/')) {
         const productId = hash.split('/')[1];
         const product = allProducts.find(p => p.id === productId);
@@ -544,7 +514,6 @@ function handleRoute() {
         return;
     }
     
-    // Check if it's cart route
     if (hash === 'cart') {
         if (typeof renderCartPage === 'function') {
             renderCartPage();
@@ -554,7 +523,6 @@ function handleRoute() {
         return;
     }
     
-    // Regular routes
     switch(hash) {
         case 'home': renderHome(); break;
         case 'men': renderMenPage(); break;
@@ -569,17 +537,14 @@ function handleRoute() {
 
 // ---------- INITIALIZATION WITH ROUTING ----------
 function init() {
-    // Listen for back/forward buttons
     window.addEventListener('hashchange', handleRoute);
     
-    // Initial load
     if (!window.location.hash || window.location.hash === '#') {
         window.location.hash = 'home';
     } else {
         handleRoute();
     }
     
-    // Navigation bar buttons
     document.getElementById("navHome")?.addEventListener("click", (e) => { e.preventDefault(); window.location.hash = 'home'; });
     document.getElementById("navMen")?.addEventListener("click", (e) => { e.preventDefault(); window.location.hash = 'men'; });
     document.getElementById("navWomen")?.addEventListener("click", (e) => { e.preventDefault(); window.location.hash = 'women'; });
@@ -589,10 +554,8 @@ function init() {
     document.getElementById("navCart")?.addEventListener("click", (e) => { e.preventDefault(); window.location.hash = 'cart'; });
     document.getElementById("discoverStoryBtn")?.addEventListener("click", (e) => { e.preventDefault(); window.location.hash = 'story'; });
     
-    // Explore button
     document.getElementById("exploreBtn")?.addEventListener("click", () => { window.location.hash = 'all'; });
     
-    // Footer buttons
     document.getElementById("footerHome")?.addEventListener("click", (e) => { e.preventDefault(); window.location.hash = 'home'; });
     document.getElementById("footerMen")?.addEventListener("click", (e) => { e.preventDefault(); window.location.hash = 'men'; });
     document.getElementById("footerWomen")?.addEventListener("click", (e) => { e.preventDefault(); window.location.hash = 'women'; });
@@ -606,7 +569,6 @@ function init() {
     document.getElementById("footerSocialWA")?.addEventListener("click", () => window.open(`https://wa.me/${CONTACT.whatsapp}`, '_blank'));
     document.getElementById("footerSocialEmail")?.addEventListener("click", () => window.location.href = `mailto:${CONTACT.email}`);
     
-    // Modal close
     const modal = document.getElementById("productModal");
     document.querySelector(".close-modal")?.addEventListener("click", () => modal.style.display = "none");
     window.addEventListener("click", e => { if (e.target === modal) modal.style.display = "none"; });
