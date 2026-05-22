@@ -34,11 +34,11 @@ men: [
         { id: "w10", name: "Black Prada Re-Nylon Baseball Cap", price: "R1500", image: "images/Accessories/PradaCap.jpeg", desc: "Baseball cap adorned with the brand's iconic enamel triangle logo.", angles: ["images/Accessories/PradaCap.jpeg", "images/Accessories/PradaCap2.jpeg"] },
         { id: "w11", name: "Louis Vuitton Trainer Sneaker", price: "R5000", image: "images/Shoes/LV-Shoe2.jpeg", desc: "Trainer sneakers in black leather with embossed monogram.", angles: ["images/Shoes/LV-Shoe2.jpeg", "images/Shoes/LV-Shoe.jpeg"] },
         { id: "w12", name: "Louis Vuitton Card Holder", price: "R2000", image: "images/Accessories/LV-Wallet.jpeg", desc: "Holders in Monogram canvas with fuchsia pink leather interior.", angles: ["images/Accessories/LV-Wallet.jpeg", "images/Accessories/LV-Wallet2.jpeg"] },
-        { id: "w13", name: "Gucci GG Mules", price: "R3500", image: "images/Shoes/GG-Mules.jpeg", desc: "Double canvas mules with brown leather and an embossed double G detail", angles: ["images/Shoes/GG-Mules.jpeg"] },
-        { id: "w14", name: "Gucci Flops", price: "R2400", image: "images/Shoes/Gucci-Flop.jpeg", desc: "Double canvas mules with brown leather and an embossed double G detail", angles: ["images/Shoes/Gucci-Flop.jpeg"] },
-        { id: "w15", name: "Gucci Sandals", price: "R3200", image: "images/Shoes/Gucci-Sandals.jpeg", desc: "Double canvas mules with brown leather and an embossed double G detail", angles: ["images/Shoes/Gucci-Sandals.jpeg"] },
+        { id: "w13", name: "Gucci GG Mules", price: "R3500", image: "images/Shoes/GG-Mules.jpeg", desc: "Premium canvas mules with brown leather trim and signature embossed double G logo.", angles: ["images/Shoes/GG-Mules.jpeg"] },
+        { id: "w14", name: "Gucci Flops", price: "R2400", image: "images/Shoes/Gucci-Flop.jpeg", desc: "Luxury designer flip flops with iconic Gucci branding and cushioned footbed.", angles: ["images/Shoes/Gucci-Flop.jpeg"] },
+        { id: "w15", name: "Gucci Sandals", price: "R3200", image: "images/Shoes/Gucci-Sandals.jpeg", desc: "Stylish leather sandals featuring the signature and comfortable fit.", angles: ["images/Shoes/Gucci-Sandals.jpeg"] },
         { id: "w16", name: "YSL Unisex Jacket", price: "R3500", image: "images/TopApparel/BlueJacket2.jpeg", desc: "Windbreaker jacket with distinctive brown contrast panel detailing.", angles: ["images/TopApparel/BlueJacket2.jpeg", "images/TopApparel/BueJacket.jpeg"] },
-        { id: "w17", name: "Louis Vuitton Unisex T-Shirt", price: "R2500", image: "images/TopApparel/ChromeT-Shirt.jpeg", desc: "Edgy Chrome-inspired t-shirt with a relaxed silhouette.", angles: ["images/TopApparel/ChromeT-Shirt.jpeg"] },
+        { id: "w17", name: "Louis Vuitton Unisex T-Shirt", price: "R2500", image: "images/TopApparel/ChromeT-Shirt.jpeg", desc: "Edgy LV-inspired t-shirt with a relaxed silhouette.", angles: ["images/TopApparel/ChromeT-Shirt.jpeg"] },
         { id: "w18", name: "Balenciaga Unisex Pink T-Shirt", price: "R2500", image: "images/TopApparel/BalenciagaT-Shirt.jpeg", desc: "Premium Balenciaga-style oversized t-shirt with a bold streetwear aesthetic.", angles: ["images/TopApparel/BalenciagaT-Shirt.jpeg"] },
     ],
     unisex: [
@@ -62,9 +62,9 @@ accessories: [
     { id: "a9", name: "Louis Vuitton Card Holder", price: "R2000", image: "images/Accessories/LV-Wallet.jpeg", desc: "Holders in Monogram canvas with fuchsia pink leather interior.", angles: ["images/Accessories/LV-Wallet.jpeg", "images/Accessories/LV-Wallet2.jpeg"] },
     { id: "a10", name: "Louis Vuitton Bag", price: "R8500", image: "images/Accessories/LVBag.jpeg", desc: "Monogram vanity-style bag - a luxury piece.", angles: ["images/Accessories/LVBag.jpeg", "images/Accessories/LVBag2.jpeg"] },
     { id: "a11", name: "Goyard Artois Tote Bag", price: "R9000", image: "images/Accessories/Orange%20Bag.jpeg", desc: "PM Tote Bag In Orange.", angles: ["images/Accessories/Orange%20Bag.jpeg"] },
-    { id: "a12", name: "Goyard Phone Case iPhone 17 Pro Max", price: "R399", image: "images/Accessories/OrangePouch.jpeg", desc: "A Goyard style orange leather phone case for an iPhone 17 Pro Max.", angles: ["images/Accessories/OrangePouch.jpeg"] },
+    { id: "a12", name: "Goyard Phone Case iPhone 17 Pro Max", price: "R1000", image: "images/Accessories/OrangePouch.jpeg", desc: "A Goyard style orange leather phone case for an iPhone 17 Pro Max.", angles: ["images/Accessories/OrangePouch.jpeg"] },
     { id: "a13", name: "Black Prada Re-Nylon Baseball Cap", price: "R1500", image: "images/Accessories/PradaCap.jpeg", desc: "Baseball cap adorned with the brand's iconic enamel triangle logo.", angles: ["images/Accessories/PradaCap.jpeg", "images/Accessories/PradaCap2.jpeg"] },
-    { id: "a14", name: "Rimowa Grey iPhone 17 Pro Max Case", price: "1000", image: "images/Accessories/WhitePouch.jpeg", desc: "Grey grooved iPhone 17 Pro Max Case.", angles: ["images/Accessories/WhitePouch.jpeg"] }  
+    { id: "a14", name: "Rimowa Grey iPhone 17 Pro Max Case", price: "R1000", image: "images/Accessories/WhitePouch.jpeg", desc: "Grey grooved iPhone 17 Pro Max Case.", angles: ["images/Accessories/WhitePouch.jpeg"] }  
 ]
 };
 
