@@ -1,7 +1,7 @@
 // ---------- OFFICIAL CONTACT DETAILS ----------
 const CONTACT = {
     email: "dressuptrendza@outlook.com",
-    whatsapp: "0837511231",
+    whatsapp: "27837511231",  // Fixed: +27 83 751 1231 becomes 27837511231
     instagram: "https://www.instagram.com/dressup_trendza"
 };
 
