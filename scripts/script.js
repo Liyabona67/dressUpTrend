@@ -5,68 +5,179 @@ const CONTACT = {
     instagram: "https://www.instagram.com/dressup_trendza"
 };
 
-// ---------- PRODUCT DATABASE ----------
-const products = {
-men: [
-    { id: "m1", name: "Balenciaga Pink T-Shirt", price: "R2500", image: "images/TopApparel/BalenciagaT-Shirt.jpeg", desc: "Premium Balenciaga-style oversized t-shirt with a bold streetwear aesthetic.", angles: ["images/TopApparel/BalenciagaT-Shirt.jpeg"] },
-    { id: "m2", name: "YSL Unisex Jacket", price: "R3500", image: "images/TopApparel/BlueJacket2.jpeg", desc: "Windbreaker jacket with distinctive brown contrast panel detailing.", angles: ["images/TopApparel/BlueJacket2.jpeg", "images/TopApparel/BueJacket.jpeg"] },
-    { id: "m3", name: "Louis Vuitton Unisex T-Shirt", price: "R2500", image: "images/TopApparel/ChromeT-Shirt.jpeg", desc: "Edgy Chrome-inspired t-shirt with a relaxed silhouette.", angles: ["images/TopApparel/ChromeT-Shirt.jpeg"] },
-    { id: "m4", name: "Hydraulics Black T-Shirt", price: "R1300", image: "images/TopApparel/HydroT-Shirt.jpeg", desc: "Hydro-branded t-shirt with premium fabric and modern cut.", angles: ["images/TopApparel/HydroT-Shirt.jpeg", "images/TopApparel/HydroT-Shirt2.jpeg"] },
-    { id: "m5", name: "Jil Sander T-Shirt", price: "R2500", image: "images/TopApparel/JilSanderT-Shirt.jpeg", desc: "Minimalist Jil Sander-inspired t-shirt for a clean, sophisticated look.", angles: ["images/TopApparel/JilSanderT-Shirt.jpeg"] },
-    { id: "m6", name: "Louis Vuitton Knitted Shirt", price: "R2500", image: "images/TopApparel/LV-Shirt.jpeg", desc: "Luxury LV-inspired shirt with iconic branding.", angles: ["images/TopApparel/LV-Shirt.jpeg"] },
-    { id: "m7", name: "Chrome Hearts", price: "R2500", image: "images/TopApparel/WhiteT.jpeg", desc: "Classic white t-shirt - a wardrobe essential.", angles: ["images/TopApparel/WhiteT.jpeg"] },
-    { id: "m8", name: "Dolce & Gabbana ", price: "R5000", image: "images/Shoes/DG-Shoe.jpeg", desc: "Michelangelo Derby shoes in black featuring a chunky sole and DG logo.", angles: ["images/Shoes/DG-Shoe.jpeg", "images/Shoes/DG-Shoe2.jpeg"] },
-    { id: "m9", name: "Gucci GG Mules", price: "R3500", image: "images/Shoes/GG-Mules.jpeg", desc: "Double canvas mules with brown leather and an embossed double G detail", angles: ["images/Shoes/GG-Mules.jpeg"] },
-    { id: "m10", name: "Louis Vuitton Trainer Sneaker", price: "R5000", image: "images/Shoes/LV-Shoe2.jpeg", desc: "Trainer sneakers in black leather with embossed monogram.", angles: ["images/Shoes/LV-Shoe2.jpeg", "images/Shoes/LV-Shoe.jpeg"] },
-    { id: "m11", name: "Louis Vuitton Card Holder", price: "R2000", image: "images/Accessories/LV-Wallet.jpeg", desc: "Holders in Monogram canvas with fuchsia pink leather interior.", angles: ["images/Accessories/LV-Wallet.jpeg", "images/Accessories/LV-Wallet2.jpeg"] },
-    { id: "m12", name: "Black Prada Re-Nylon Baseball Cap", price: "R1500", image: "images/Accessories/PradaCap.jpeg", desc: "Baseball cap adorned with the brand's iconic enamel triangle logo.", angles: ["images/Accessories/PradaCap.jpeg", "images/Accessories/PradaCap2.jpeg"] },
-     ],
-    women: [
-        { id: "w1", name: "Van Cleef & Arpels Necklace", price: "R3500", image: "images/Accessories/ChromeNecklace.jpeg", desc: "An 18K Yellow Gold Vintage Alhambra Pendant Necklace.", angles: ["images/Accessories/ChromeNecklace.jpeg", "images/Accessories/ChromeNecklace2.jpeg"] },
-        { id: "w2", name: "DG Earrings", price: "R1600", image: "images/Accessories/DGEarings.jpeg", desc: "Elegant designer earrings for a sophisticated look.", angles: ["images/Accessories/DGEarings.jpeg"] },
-        { id: "w3", name: "Dior Earrings", price: "R1600", image: "images/Accessories/DiorEarings.jpeg", desc: "Luxury Dior-inspired earrings with premium finish.", angles: ["images/Accessories/DiorEarings.jpeg"] },
-        { id: "w4", name: "Black Gucci GG Marmont", price: "R3500", image: "images/Accessories/GGBag.jpeg", desc: "Designer small shoulder bag - a matelasse leather", angles: ["images/Accessories/GGBag.jpeg"] },
-        { id: "w5", name: "Givenchy Bag", price: "R4500", image: "images/Accessories/GivenchyBag.jpeg", desc: "G-Tote Mini Vertica - Black/Red.", angles: ["images/Accessories/GivenchyBag.jpeg", "images/Accessories/GivenchyBag2.jpeg", "images/Accessories/GivenchyBag3.jpeg"] },
-        { id: "w6", name: "Gucci Glasses", price: "R2500", image: "images/Accessories/GucciGlasses.jpeg", desc: "Statement Gucci-style glasses with UV protection.", angles: ["images/Accessories/GucciGlasses.jpeg", "images/Accessories/GucciGlasses2.jpeg"] },
-        { id: "w7", name: "Jacquemus Bag", price: "R4200", image: "images/Accessories/JacquemusBag.jpeg", desc: "Jacquemus Le Bambino Long Shoulder Bag.", angles: ["images/Accessories/JacquemusBag.jpeg", "images/Accessories/JacquemusBag2.jpeg", "images/Accessories/JacquemusBag3.jpeg"] },
-        { id: "w8", name: "Louis Vuitton Bag", price: "R8500", image: "images/Accessories/LVBag.jpeg", desc: "Monogram vanity-style bag - a luxury piece.", angles: ["images/Accessories/LVBag.jpeg", "images/Accessories/LVBag2.jpeg"] },
-        { id: "w9", name: "Goyard Artois Tote Bag", price: "R9000", image: "images/Accessories/Orange%20Bag.jpeg", desc: "PM Tote Bag In Orange.", angles: ["images/Accessories/Orange%20Bag.jpeg"] },
-        { id: "w10", name: "Black Prada Re-Nylon Baseball Cap", price: "R1500", image: "images/Accessories/PradaCap.jpeg", desc: "Baseball cap adorned with the brand's iconic enamel triangle logo.", angles: ["images/Accessories/PradaCap.jpeg", "images/Accessories/PradaCap2.jpeg"] },
-        { id: "w11", name: "Louis Vuitton Trainer Sneaker", price: "R5000", image: "images/Shoes/LV-Shoe2.jpeg", desc: "Trainer sneakers in black leather with embossed monogram.", angles: ["images/Shoes/LV-Shoe2.jpeg", "images/Shoes/LV-Shoe.jpeg"] },
-        { id: "w12", name: "Louis Vuitton Card Holder", price: "R2000", image: "images/Accessories/LV-Wallet.jpeg", desc: "Holders in Monogram canvas with fuchsia pink leather interior.", angles: ["images/Accessories/LV-Wallet.jpeg", "images/Accessories/LV-Wallet2.jpeg"] },
-        { id: "w13", name: "Gucci GG Mules", price: "R3500", image: "images/Shoes/GG-Mules.jpeg", desc: "Premium canvas mules with brown leather trim and signature embossed double G logo.", angles: ["images/Shoes/GG-Mules.jpeg"] },
-        { id: "w14", name: "Gucci Flops", price: "R2400", image: "images/Shoes/Gucci-Flop.jpeg", desc: "Luxury designer flip flops with iconic Gucci branding and cushioned footbed.", angles: ["images/Shoes/Gucci-Flop.jpeg"] },
-        { id: "w15", name: "Gucci Sandals", price: "R3200", image: "images/Shoes/Gucci-Sandals.jpeg", desc: "Stylish leather sandals featuring the signature and comfortable fit.", angles: ["images/Shoes/Gucci-Sandals.jpeg"] },
-        { id: "w16", name: "YSL Unisex Jacket", price: "R3500", image: "images/TopApparel/BlueJacket2.jpeg", desc: "Windbreaker jacket with distinctive brown contrast panel detailing.", angles: ["images/TopApparel/BlueJacket2.jpeg", "images/TopApparel/BueJacket.jpeg"] },
-        { id: "w17", name: "Louis Vuitton Unisex T-Shirt", price: "R2500", image: "images/TopApparel/ChromeT-Shirt.jpeg", desc: "Edgy LV-inspired t-shirt with a relaxed silhouette.", angles: ["images/TopApparel/ChromeT-Shirt.jpeg"] },
-        { id: "w18", name: "Balenciaga Unisex Pink T-Shirt", price: "R2500", image: "images/TopApparel/BalenciagaT-Shirt.jpeg", desc: "Premium Balenciaga-style oversized t-shirt with a bold streetwear aesthetic.", angles: ["images/TopApparel/BalenciagaT-Shirt.jpeg"] },
-    ],
-    unisex: [
-        { id: "u1", name: "Louis Vuitton Trainer Sneaker", price: "R5000", image: "images/Shoes/LV-Shoe2.jpeg", desc: "Trainer sneakers in black leather with embossed monogram.", angles: ["images/Shoes/LV-Shoe2.jpeg", "images/Shoes/LV-Shoe.jpeg"] },
-        { id: "u2", name: "Louis Vuitton Card Holder", price: "R2000", image: "images/Accessories/LV-Wallet.jpeg", desc: "Holders in Monogram canvas with fuchsia pink leather interior.", angles: ["images/Accessories/LV-Wallet.jpeg", "images/Accessories/LV-Wallet2.jpeg"] },
-        { id: "u3", name: "Black Prada Re-Nylon Baseball Cap", price: "R1,500", image: "images/Accessories/PradaCap.jpeg", desc: "Baseball cap adorned with the brand's iconic enamel triangle logo.", angles: ["images/Accessories/PradaCap.jpeg", "images/Accessories/PradaCap2.jpeg"] },
-        { id: "u4", name: "Gucci GG Mules", price: "R3500", image: "images/Shoes/GG-Mules.jpeg", desc: "Double canvas mules with brown leather and an embossed double G detail", angles: ["images/Shoes/GG-Mules.jpeg"] },
-        { id: "u5", name: "YSL Unisex Jacket", price: "R3500", image: "images/TopApparel/BlueJacket2.jpeg", desc: "Windbreaker jacket with distinctive brown contrast panel detailing.", angles: ["images/TopApparel/BlueJacket2.jpeg", "images/TopApparel/BueJacket.jpeg"] },
-        { id: "u6", name: "Louis Vuitton Unisex T-Shirt", price: "R2500", image: "images/TopApparel/ChromeT-Shirt.jpeg", desc: "Edgy Chrome-inspired t-shirt with a relaxed silhouette.", angles: ["images/TopApparel/ChromeT-Shirt.jpeg"] },
-        { id: "u7", name: "Balenciaga Pink T-Shirt", price: "R2500", image: "images/TopApparel/BalenciagaT-Shirt.jpeg", desc: "Premium Balenciaga-style oversized t-shirt with a bold streetwear aesthetic.", angles: ["images/TopApparel/BalenciagaT-Shirt.jpeg"] },
-    ],
-accessories: [
-    { id: "a1", name: "Rimowa Black iPhone 17 Pro Max Case", price: "R1000", image: "images/Accessories/BlackPouch.jpeg", desc: "Black grooved iPhone 17 Pro Max Case.", angles: ["images/Accessories/BlackPouch.jpeg"] },
-    { id: "a2", name: "Van Cleef & Arpels Necklace", price: "R3500", image: "images/Accessories/ChromeNecklace.jpeg", desc: "An 18K Yellow Gold Vintage Alhambra Pendant Necklace.", angles: ["images/Accessories/ChromeNecklace.jpeg", "images/Accessories/ChromeNecklace2.jpeg"] },
-    { id: "a3", name: "DG Earrings", price: "R1600", image: "images/Accessories/DGEarings.jpeg", desc: "Elegant designer earrings for a sophisticated look.", angles: ["images/Accessories/DGEarings.jpeg"] },
-    { id: "a4", name: "Dior Earrings", price: "R1600", image: "images/Accessories/DiorEarings.jpeg", desc: "Luxury Dior-inspired earrings with premium finish.", angles: ["images/Accessories/DiorEarings.jpeg"] },
-    { id: "a5", name: "Black Gucci GG Marmont", price: "R3500", image: "images/Accessories/GGBag.jpeg", desc: "Designer small shoulder bag - a matelasse leather.", angles: ["images/Accessories/GGBag.jpeg"] },
-    { id: "a6", name: "Givenchy Bag", price: "R4500", image: "images/Accessories/GivenchyBag.jpeg", desc: "G-Tote Mini Vertica - Black/Red.", angles: ["images/Accessories/GivenchyBag.jpeg", "images/Accessories/GivenchyBag2.jpeg", "images/Accessories/GivenchyBag3.jpeg"] },
-    { id: "a7", name: "Gucci Glasses", price: "R2500", image: "images/Accessories/GucciGlasses.jpeg", desc: "Statement Gucci-style glasses with UV protection.", angles: ["images/Accessories/GucciGlasses.jpeg", "images/Accessories/GucciGlasses2.jpeg"] },
-    { id: "a8", name: "Jacquemus Bag", price: "R4200", image: "images/Accessories/JacquemusBag.jpeg", desc: "Jacquemus Le Bambino Long Shoulder Bag.", angles: ["images/Accessories/JacquemusBag.jpeg", "images/Accessories/JacquemusBag2.jpeg", "images/Accessories/JacquemusBag3.jpeg"] },
-    { id: "a9", name: "Louis Vuitton Card Holder", price: "R2000", image: "images/Accessories/LV-Wallet.jpeg", desc: "Holders in Monogram canvas with fuchsia pink leather interior.", angles: ["images/Accessories/LV-Wallet.jpeg", "images/Accessories/LV-Wallet2.jpeg"] },
-    { id: "a10", name: "Louis Vuitton Bag", price: "R8500", image: "images/Accessories/LVBag.jpeg", desc: "Monogram vanity-style bag - a luxury piece.", angles: ["images/Accessories/LVBag.jpeg", "images/Accessories/LVBag2.jpeg"] },
-    { id: "a11", name: "Goyard Artois Tote Bag", price: "R9000", image: "images/Accessories/Orange%20Bag.jpeg", desc: "PM Tote Bag In Orange.", angles: ["images/Accessories/Orange%20Bag.jpeg"] },
-    { id: "a12", name: "Goyard Phone Case iPhone 17 Pro Max", price: "R1000", image: "images/Accessories/OrangePouch.jpeg", desc: "A Goyard style orange leather phone case for an iPhone 17 Pro Max.", angles: ["images/Accessories/OrangePouch.jpeg"] },
-    { id: "a13", name: "Black Prada Re-Nylon Baseball Cap", price: "R1500", image: "images/Accessories/PradaCap.jpeg", desc: "Baseball cap adorned with the brand's iconic enamel triangle logo.", angles: ["images/Accessories/PradaCap.jpeg", "images/Accessories/PradaCap2.jpeg"] },
-    { id: "a14", name: "Rimowa Grey iPhone 17 Pro Max Case", price: "R1000", image: "images/Accessories/WhitePouch.jpeg", desc: "Grey grooved iPhone 17 Pro Max Case.", angles: ["images/Accessories/WhitePouch.jpeg"] }  
-]
-};
+// ---------- GOOGLE SHEETS CONFIG ----------
+// Paste your deployed Apps Script Web App /exec URL here.
+const SHEET_API_URL = "https://script.google.com/macros/s/AKfycbyA7hlP0qWjJHqvlykle_2-39gg9ZHU3vJJY3fvcwWNv1wSw8tt5JmVpgQLQVH6YQcjwA/exec";
+
+const PLACEHOLDER_IMG = "https://placehold.co/500x600/F7F4F0/3D3530?text=DRESSUP";
+const CATEGORIES = ["men", "women", "unisex", "accessories"];
+
+// Lightweight per-tab cache so repeat navigations don't re-hit the API.
+const CACHE_KEY = "dressup_products_cache_v1";
+const CACHE_TTL_MS = 5 * 60 * 1000; // 5 minutes
+
+// ---------- PRODUCT STATE (populated by loadProducts) ----------
+let products = {};
+let allProducts = [];
+
+// ---------- DATA HELPERS ----------
+function parseAngles(raw) {
+    if (raw === null || raw === undefined) return [];
+    return String(raw)
+        .split(",")
+        .map(s => s.trim())
+        .filter(Boolean);
+}
+
+function formatPrice(raw) {
+    if (raw === null || raw === undefined || String(raw).trim() === "") return "Enquire";
+    const s = String(raw).trim();
+    // If the sheet stored a plain number (e.g. 2500) prefix the currency.
+    return /^\d+(\.\d+)?$/.test(s) ? "R" + s : s;
+}
+
+// Convert one sheet row -> the exact product object the app expects.
+// Returns null for rows that are too broken to use (they get skipped).
+function normalizeProduct(row) {
+    if (!row || typeof row !== "object") return null;
+
+    const id = String(row.id ?? "").trim();
+    const name = String(row.name ?? "").trim();
+    if (!id || !name) return null; // mandatory fields
+
+    const category = String(row.category ?? "").trim().toLowerCase();
+
+    let angles = parseAngles(row.angles);
+    let image = String(row.image ?? "").trim();
+
+    // Fallback chain for missing images / angles.
+    if (!image && angles.length) image = angles[0];
+    if (!image) image = PLACEHOLDER_IMG;
+    if (!angles.length) angles = [image];
+
+    return {
+        id,
+        category,
+        name,
+        price: formatPrice(row.price),
+        image,
+        desc: String(row.desc ?? "").trim(),
+        angles
+    };
+}
+
+// ---------- CACHE HELPERS ----------
+function readCache() {
+    try {
+        const raw = sessionStorage.getItem(CACHE_KEY);
+        if (!raw) return null;
+        const { ts, rows } = JSON.parse(raw);
+        if (Date.now() - ts > CACHE_TTL_MS) return null;
+        return Array.isArray(rows) ? rows : null;
+    } catch (e) {
+        return null;
+    }
+}
+
+function writeCache(rows) {
+    try {
+        sessionStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now(), rows }));
+    } catch (e) {
+        /* storage disabled or full — non-fatal */
+    }
+}
+
+// ---------- FETCH RAW ROWS FROM APPS SCRIPT ----------
+async function fetchRows() {
+    if (!SHEET_API_URL || SHEET_API_URL.includes("REPLACE_WITH_YOUR")) {
+        throw new Error("Product API endpoint is not configured.");
+    }
+
+    const res = await fetch(SHEET_API_URL, { method: "GET", redirect: "follow" });
+    if (!res.ok) throw new Error("Request failed with status " + res.status);
+
+    let data;
+    try {
+        data = await res.json();
+    } catch (e) {
+        throw new Error("Server response was not valid JSON.");
+    }
+
+    if (data && data.success === false) {
+        throw new Error(data.error || "The product service returned an error.");
+    }
+
+    // Accept either { success, products: [...] } or a bare [...] array.
+    const rows = Array.isArray(data) ? data : (data && data.products);
+    if (!Array.isArray(rows)) throw new Error("Unexpected data format from server.");
+
+    return rows;
+}
+
+// ---------- MAIN LOADER ----------
+async function loadProducts({ useCache = true } = {}) {
+    let rows = useCache ? readCache() : null;
+
+    if (!rows) {
+        rows = await fetchRows();
+        writeCache(rows);
+    }
+
+    const grouped = { men: [], women: [], unisex: [], accessories: [] };
+
+    rows.forEach((row, i) => {
+        const product = normalizeProduct(row);
+        if (!product) {
+            console.warn("[Dressup] Skipped invalid row at index " + i, row);
+            return;
+        }
+        if (grouped[product.category]) {
+            grouped[product.category].push(product);
+        } else {
+            console.warn("[Dressup] Unknown category '" + product.category + "' for id " + product.id);
+        }
+    });
+
+    // Publish to module-scoped state used by every render function.
+    products = grouped;
+    allProducts = CATEGORIES.reduce((acc, c) => acc.concat(grouped[c]), []);
+
+    return products;
+}
+
+// ---------- LOADING / ERROR UI ----------
+function showLoadingState() {
+    const app = document.getElementById("app");
+    if (!app) return;
+    if (typeof hideHero === "function") hideHero();
+    app.innerHTML = `
+        <div style="min-height:60vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px;">
+            <div style="width:46px;height:46px;border:4px solid #e7e0d8;border-top-color:#b8973a;border-radius:50%;animation:dressupSpin .9s linear infinite;"></div>
+            <p style="margin-top:20px;color:#6b625a;">Loading the latest collection…</p>
+        </div>
+        <style>@keyframes dressupSpin{to{transform:rotate(360deg)}}</style>
+    `;
+}
+
+function showLoadErrorState(error) {
+    const app = document.getElementById("app");
+    if (!app) return;
+    if (typeof hideHero === "function") hideHero();
+    const msg = (error && error.message) ? error.message : "Something went wrong.";
+    app.innerHTML = `
+        <div style="min-height:60vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px;">
+            <i class="fas fa-triangle-exclamation" style="font-size:42px;color:#b8973a;margin-bottom:18px;"></i>
+            <h2 style="margin:0 0 10px;color:#3d3530;">We couldn't load the store</h2>
+            <p style="max-width:420px;color:#6b625a;margin:0 0 6px;">Please check your connection and try again.</p>
+            <p style="max-width:420px;color:#b0a79e;font-size:.8rem;margin:0 0 22px;">${msg}</p>
+            <button id="retryLoadBtn" class="btn dark-btn">↻ Try Again</button>
+            <a href="https://wa.me/${CONTACT.whatsapp}" target="_blank" class="btn outline-btn" style="margin-top:12px;">
+                <i class="fab fa-whatsapp"></i> Contact us on WhatsApp
+            </a>
+        </div>
+    `;
+    document.getElementById("retryLoadBtn")?.addEventListener("click", () => init());
+}
 
 // Remove duplicate products by name
 function removeDuplicates(productArray) {
@@ -81,12 +192,7 @@ function removeDuplicates(productArray) {
     });
 }
 
-const allProducts = [
-    ...products.men,
-    ...products.women,
-    ...products.unisex,
-    ...products.accessories
-];
+// allProducts is populated by loadProducts()
 
 // ---------- HERO HELPERS ----------
 function showHero() {
@@ -320,8 +426,8 @@ function renderHome() {
     
     const featuredBadges = { m1: 'Bestseller', m2: 'New', w1: 'New', m4: 'Limited' };
     const arrivalBadges = { w2: 'New', w3: 'New', m5: 'New', u1: 'New' };
-    const featured = [products.men[0], products.men[1], products.women[0], products.men[3], products.women[2]];
-    const arrivals = [products.women[0], products.women[1], products.women[2], products.men[4], products.unisex[0], products.unisex[2]];
+    const featured = [products.men[0], products.men[1], products.women[0], products.men[3], products.women[2]].filter(Boolean);
+    const arrivals = [products.women[0], products.women[1], products.women[2], products.men[4], products.unisex[0], products.unisex[2]].filter(Boolean);
 
     const html = `
         <div class="container">
@@ -535,16 +641,15 @@ function handleRoute() {
     }
 }
 
-// ---------- INITIALIZATION WITH ROUTING ----------
-function init() {
+// ---------- GLOBAL LISTENERS (attached once, after products load) ----------
+let listenersAttached = false;
+
+function attachGlobalListeners() {
+    if (listenersAttached) return;
+    listenersAttached = true;
+
     window.addEventListener('hashchange', handleRoute);
-    
-    if (!window.location.hash || window.location.hash === '#') {
-        window.location.hash = 'home';
-    } else {
-        handleRoute();
-    }
-    
+
     document.getElementById("navHome")?.addEventListener("click", (e) => { e.preventDefault(); window.location.hash = 'home'; });
     document.getElementById("navMen")?.addEventListener("click", (e) => { e.preventDefault(); window.location.hash = 'men'; });
     document.getElementById("navWomen")?.addEventListener("click", (e) => { e.preventDefault(); window.location.hash = 'women'; });
@@ -553,9 +658,9 @@ function init() {
     document.getElementById("navAll")?.addEventListener("click", (e) => { e.preventDefault(); window.location.hash = 'all'; });
     document.getElementById("navCart")?.addEventListener("click", (e) => { e.preventDefault(); window.location.hash = 'cart'; });
     document.getElementById("discoverStoryBtn")?.addEventListener("click", (e) => { e.preventDefault(); window.location.hash = 'story'; });
-    
+
     document.getElementById("exploreBtn")?.addEventListener("click", () => { window.location.hash = 'all'; });
-    
+
     document.getElementById("footerHome")?.addEventListener("click", (e) => { e.preventDefault(); window.location.hash = 'home'; });
     document.getElementById("footerMen")?.addEventListener("click", (e) => { e.preventDefault(); window.location.hash = 'men'; });
     document.getElementById("footerWomen")?.addEventListener("click", (e) => { e.preventDefault(); window.location.hash = 'women'; });
@@ -568,11 +673,37 @@ function init() {
     document.getElementById("footerSocialIG")?.addEventListener("click", () => window.open(CONTACT.instagram, '_blank'));
     document.getElementById("footerSocialWA")?.addEventListener("click", () => window.open(`https://wa.me/${CONTACT.whatsapp}`, '_blank'));
     document.getElementById("footerSocialEmail")?.addEventListener("click", () => window.location.href = `mailto:${CONTACT.email}`);
-    
+
     const modal = document.getElementById("productModal");
     document.querySelector(".close-modal")?.addEventListener("click", () => modal.style.display = "none");
     window.addEventListener("click", e => { if (e.target === modal) modal.style.display = "none"; });
     document.addEventListener("keydown", e => { if (e.key === "Escape") modal.style.display = "none"; });
+}
+
+// ---------- ASYNC INITIALIZATION WITH ROUTING ----------
+async function init() {
+    showLoadingState();
+
+    try {
+        await loadProducts();
+    } catch (err) {
+        console.error("[Dressup] Failed to load products:", err);
+        showLoadErrorState(err);
+        return; // stop — no routing, no crash
+    }
+
+    if (!allProducts.length) {
+        showLoadErrorState(new Error("No products are available at the moment."));
+        return;
+    }
+
+    attachGlobalListeners();
+
+    if (!window.location.hash || window.location.hash === '#') {
+        window.location.hash = 'home';   // triggers hashchange -> handleRoute
+    } else {
+        handleRoute();                   // deep-link / refresh case
+    }
 }
 
 window.addEventListener("DOMContentLoaded", init);
